@@ -109,7 +109,6 @@ export const D3Operations = (() => {
             .attr("width", x.bandwidth())
             .attr("height", y(d[numeric_key]))
 
-
           // Baseline bar
           group.append("rect")
             .attr("class", "baseline")
@@ -121,21 +120,25 @@ export const D3Operations = (() => {
             .attr("fill-opacity", 0.5);
         })
       .on("mouseover", function (event, d) {
-
         const main_bar = d3.select(this).select(".main-bar")
         const band_width = Number(main_bar.attr("width"))/2;
-        const x = Number(main_bar.attr("x")) + band_width+ axis_area + axis_area;
+        // Actual dimention for pop up
+        const DOM_width = svg.node().clientWidth
+        const x_trans_factor = DOM_width/full_width
+        const x = Number(main_bar.attr("x")) + band_width + axis_area + axis_area;
         const y = Number(main_bar.attr("y"));
 
         d3.select(this).attr('fill', '#999b66');
-        GraphInforController.show(d, [x,event.offsetY])
+        console.log("virtual x: ", x)
+        console.log("factor: ", null)
+        console.log("actual:  ", DOM_width)
+        GraphInforController.show(d, [x*x_trans_factor,event.offsetY])
       })
       .on("mouseout", function (event, d) {
         d3.select(this).attr('fill', '#669B7C');
         GraphInforController.hide()
       })
       ;
-
 
     // Adding labels on top
     canvas_area.append("g")
@@ -152,7 +155,7 @@ export const D3Operations = (() => {
 
     // Adding Axis labal
     svg.append("text")
-      .attr("font-size", "18px")
+      .attr("font-size", "14px")
       .attr('text-anchor', 'middle')
       .attr("x", (width / 2) + axis_area )
       .attr("y", height + axis_area + (label_pad/2))
@@ -164,9 +167,6 @@ export const D3Operations = (() => {
           else selection.attr('fill', "#5f5f5f")
         })
       })
-
-
-
   }
 
 

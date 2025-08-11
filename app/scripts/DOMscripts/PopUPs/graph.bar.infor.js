@@ -20,11 +20,14 @@ export const GraphInforController = (() => {
         element.querySelector(".prod-price").textContent = infor.price
         //animating pop up
         GsapModule.timeline().set("#graph-popup", { x: xpos - 30, y: ypos, scale: 1.3, opacity: 0 })
+          .call(() => {
+            document.querySelector("#graph-popup")
+            .classList.add("active")
+          })
           .to("#graph-popup", { x: xpos, y: ypos, scale: 1, opacity: 1 })
           .from("#graph-popup .prod-name", { x: 10, opacity: 0 })
           .from("#graph-popup .prod-des", { x: 10, opacity: 0 })
           .from("#graph-popup .col", { y: 5, opacity: 0 })
-
       },timeout)
     },
     hide: () => {
@@ -32,7 +35,11 @@ export const GraphInforController = (() => {
       const currentY = GsapModule.getProperty("#graph-popup", "y")
       timeout_id = setTimeout(() => {
         GsapModule.timeline()
-        .to("#graph-popup", {opacity:0, y: currentY-10, duration:0.5})
+          .to("#graph-popup", { opacity: 0, y: currentY - 10, duration: 0.5 })
+          .then(() => {
+            document.querySelector("#graph-popup")
+            .classList.remove("active")
+        })
       },timeout)
     }
   }

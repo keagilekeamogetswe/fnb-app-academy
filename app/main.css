@@ -25,13 +25,20 @@ body.dark {
     background-color: #323736;
     border-color: #557669;
   }
-  #graph-popup{background-color: #28605454; color:#c2c2c2 ;}
+
+  #graph-popup{
+
+    background-color: #28605454; color:#c2c2c2 ;}
 }
 #graph-container{
   position: relative;
+  max-width: 600px;
 }
-
+#graph-popup.active{
+    visibility: visible;
+  }
 #graph-popup{
+  visibility: hidden;
   display: flex;
   color:#5f5f5f;
   flex-flow: column nowrap;
