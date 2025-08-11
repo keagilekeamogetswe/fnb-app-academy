@@ -1,0 +1,116 @@
+:root{
+  --default-bg: #fff;
+  --varient-bg-1: #EBEBEB;
+  --varient-bg-2: #D7D7D7;
+  --primary: #669B7C;
+  --primary-two: #557669;
+}
+#data-visual{
+    border: solid 1px #669B7C;
+    background-color: #d7d7d7;
+  }
+body.dark {
+    --default-bg: #282c2b;
+    --varient-bg-1: #323736;
+    --varient-bg-2: #2c3432;
+    --primary: #669B7C;
+    --primary-two: #557669;
+    color: #EBEBEB;
+  .check-switch:has(.active){
+    background-color: #297d69;
+  }.check-switch:has(.active) span{
+    background-color: white;
+  }
+  #data-visual{
+    background-color: #323736;
+    border-color: #557669;
+  }
+  #graph-popup{background-color: #28605454; color:#c2c2c2 ;}
+}
+#graph-container{
+  position: relative;
+}
+
+#graph-popup{
+  display: flex;
+  color:#5f5f5f;
+  flex-flow: column nowrap;
+  position: absolute;
+  background-color: #ffffff4f;
+  width: 164px;
+  border: 1px solid #51886f;
+  padding: 6px;
+  }
+#graph-popup .prod-name{
+  font-size: 14px;
+  margin: 0;
+}
+#graph-popup .prod-des{
+  font-size: 12px;
+  margin: 6px 0;
+  text-align: justify;
+  letter-spacing: 0.5px;
+}
+#graph-popup .col{
+  display: flex;
+  justify-content: space-between;
+  flex-flow: row nowrap;
+}
+#graph-popup .col div p {
+  margin: 0;
+  font-weight: 400;
+  font-size: 12px;
+}
+#graph-popup .col div span{
+  margin-left: 6px;
+}
+  @supports (backdrop-filter: blur(3px)){
+    #graph-popup{backdrop-filter: blur(3px)}
+  }
+body{
+  margin: 0;
+  font-family: sans-serif
+}
+header{
+  background-color: var(--varient-bg-1);
+  padding: 12px;
+}
+#side-section-container{
+  background-color: var(--varient-bg-2);
+}
+#main-theme-button{
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+}
+main{
+  padding:12px;
+  background-color: var(--default-bg);
+}
+.check-switch{
+    cursor: pointer;
+    background-color: #323736;
+    width: 40px;
+    height: 20px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    box-sizing: content-box;
+    margin-left: 16px;
+  }
+  .check-switch span{
+    width: 16px;
+
+    height: 16px;
+    display: block;
+    transform:translateX(2px);
+    background-color: white;
+    border-radius: 50%;
+    transition: transform ease-in-out 300ms ;
+  }
+
+.check-switch:has(.active) span{
+  transition: transform ease-in-out 300ms ;
+    transform:translateX(22.5px);
+
+  }

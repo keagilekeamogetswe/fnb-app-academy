@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>FNB App Academy</title>
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="layout.css">
+  <script type="application/json" id="default-products">
+    [
+      {
+        "code": "d323e1",
+        "name": "Big Pens",
+        "description": "Smooth-writing ballpoint pens with a comfortable grip. Ideal for everyday use in offices and schools.",
+        "quantity": 140,
+        "QuantityBaseline": 40,
+        "price": 24
+      },
+      {
+        "code": "sa3skv",
+        "name": "Gel Pens",
+        "description": "Vibrant gel ink pens that glide effortlessly. Perfect for creative writing and journaling.",
+        "quantity": 85,
+        "QuantityBaseline": 30,
+        "price": 29
+      },
+      {
+        "code": "#dsdq2",
+        "name": "Mechanical Pencils",
+        "description": "Durable pencils with refillable lead and built-in erasers. Great for technical drawing and note-taking.",
+        "quantity": 60,
+        "QuantityBaseline": 25,
+        "price": 18
+      },
+      {
+        "code": "2de3cc",
+        "name": "Highlighters",
+        "description": "Bright neon highlighters with chisel tips. Highlight important text with precision.",
+        "quantity": 200,
+        "QuantityBaseline": 50,
+        "price": 15
+      },
+      {
+        "code": "5fl4zx",
+        "name": "Sticky Notes",
+        "description": "Colorful sticky notes for reminders, bookmarks, and brainstorming sessions.",
+        "quantity": 320,
+        "QuantityBaseline": 100,
+        "price": 10
+      },
+      {
+        "code": "ew3rfs",
+        "name": "A4 Notebooks",
+        "description": "Hardcover notebooks with ruled pages. Ideal for school, work, or personal journaling.",
+        "quantity": 95,
+        "QuantityBaseline": 35,
+        "price": 32
+      },
+      {
+        "code": "k9x8lm",
+        "name": "Whiteboard Markers",
+        "description": "Low-odor markers with bold colors. Perfect for classrooms and meeting rooms.",
+        "quantity": 75,
+        "QuantityBaseline": 20,
+        "price": 22
+      },
+      {
+        "code": "m3n2op",
+        "name": "Desk Organizers",
+        "description": "Multi-compartment organizers to keep your workspace tidy and efficient.",
+        "quantity": 40,
+        "QuantityBaseline": 10,
+        "price": 45
+      },
+      {
+        "code": "z7q4yt",
+        "name": "Correction Tape",
+        "description": "Quick-dry correction tape for clean and precise edits. No mess, no smudge.",
+        "quantity": 110,
+        "QuantityBaseline": 30,
+        "price": 12
+      },
+      {
+        "code": "v8r1bn",
+        "name": "Binder Clips",
+        "description": "Heavy-duty clips for securing documents. Available in assorted sizes.",
+        "quantity": 260,
+        "QuantityBaseline": 80,
+        "price": 8
+      },
+      {
+        "code": "x5w3qe",
+        "name": "Envelopes",
+        "description": "Standard white envelopes for mailing and document storage.",
+        "quantity": 500,
+        "QuantityBaseline": 150,
+        "price": 6
+      },
+      {
+        "code": "t2a9gh",
+        "name": "Scissors",
+        "description": "Ergonomic scissors with stainless steel blades. Suitable for office and craft use.",
+        "quantity": 55,
+        "QuantityBaseline": 20,
+        "price": 19
+      },
+      {
+        "code": "f6u7jd",
+        "name": "Staplers",
+        "description": "Compact staplers with smooth action and durable build. Includes starter staples.",
+        "quantity": 70,
+        "QuantityBaseline": 25,
+        "price": 27
+      }
+    ]
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <header>
+    <div id="main-theme-button">
+      <p>Dark Mode</p>
+      <div class="check-switch" toggle-dark-mode>
+        <span class=""></span>
+      </div>
+    </div>
+  </header>
+  <div>
+    <div id="side-section-container">
+      <nav>
+
+      </nav>
+      <footer>
+
+      </footer>
+    </div>
+    <main>
+      <div id="graph-container">
+        <div id="graph-popup">
+          <h1 class="prod-name"></h1>
+          <p class="prod-des">
+
+          </p>
+          <div class="col">
+            <div>
+               <p >Price</p>
+               <span class="prod-price"></span>
+            </div>
+            <div>
+              <p>Quantity</p>
+               <span class="prod-quantity"></span>
+            </div>
+          </div>
+        </div>
+        <svg id="data-visual">
+        </svg>
+
+      </div>
+
+    </main>
+  </div>
+  <script type="module" src="/scripts/app.js"></script>
+</body>
+</html>
