@@ -132,7 +132,7 @@ export const D3Operations = (() => {
         console.log("virtual x: ", x)
         console.log("factor: ", null)
         console.log("actual:  ", DOM_width)
-        GraphInforController.show(d, [x*x_trans_factor,event.offsetY])
+        GraphInforController.show(d, [x*x_trans_factor,event.offsetY],band_width*x_trans_factor)
       })
       .on("mouseout", function (event, d) {
         d3.select(this).attr('fill', '#669B7C');

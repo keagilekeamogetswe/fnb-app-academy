@@ -1,7 +1,21 @@
 export const ProductManager = (() => {
   const products = new Map();
+  const subscribers = []
+  function callSubcribers(params) {
+    subscribers.forEach((callback) => {
+      // Calling subscribers
+      callback()
+    })
+  }
 
   return {
+    pushSubscription: (responseCallback)=> {
+      const type_valid = typeof responseCallback === "function"
+      if (type_valid)
+        subscribers.push(responseCallback)
+      else console.error("unexpected type error");
+      return type_valid;
+    },
     getAllProducts: () =>Array.from(products).map(([code,item])=>item),
     loadDefaultProducts:  async ()=>{
       const data_element = document.getElementById("default-products")
@@ -21,15 +35,23 @@ export const ProductManager = (() => {
           return false
         });
       //If products are loaded the promise is true else false
+      try {
+        callSubcribers()
+      } catch (error) {
+        console.error(error)
+      }
       return promise
     },
     addProd(item) {
       if(products.has(item.code)) return false
       products.set(item.code, item);
+      callSubcribers()
       return true
     },
     removeItem(code) {
-      return products.delete(code);
+      const status = products.delete(code);
+      if(status)callSubcribers();
+      return stutus;
     },
     getProduct(code) {
       return products.get(code);
@@ -51,9 +73,13 @@ export const ProductManager = (() => {
       // If code is changing, delete old entry and set new one
       if (newCode && newCode !== code) {
         products.delete(code);
-        products.set(newCode, updatedProduct);
+        const status = products.set(newCode, updatedProduct);
+        callSubcribers()
+        return status
       } else {
-        products.set(code, updatedProduct);
+        const status = products.set(code, updatedProduct);
+        callSubcribers()
+        return status
       }
     }
 

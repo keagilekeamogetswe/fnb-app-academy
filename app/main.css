@@ -5,6 +5,21 @@
   --primary: #669B7C;
   --primary-two: #557669;
 }
+body>div {
+  display: flex;
+  flex-direction: column;
+      display: flex;
+    flex-direction: column;
+    /* width: 100%; */
+    /* height: 100%; */
+    align-self: stretch;
+    justify-self: stretch;
+    flex-grow: 1;
+}
+ul{
+  list-style-type: none;
+  padding: 0;
+}
 #data-visual{
     border: solid 1px #669B7C;
     background-color: #d7d7d7;
@@ -25,7 +40,17 @@ body.dark {
     background-color: #323736;
     border-color: #557669;
   }
-
+  #dashboard div summary .category{
+    border: #1e6c59 solid 1px;
+    background-color: #297d6924;
+    background: linear-gradient(45deg, #297d6947, transparent);
+    color: #d7d7d7;
+  }
+  #dashboard div summary{
+    background-color: #313b38;
+  }
+  #dashboard div summary .category:hover {
+    background:#1e6c59}
   #graph-popup{
 
     background-color: #28605454; color:#c2c2c2 ;}
@@ -33,6 +58,8 @@ body.dark {
 #graph-container{
   position: relative;
   max-width: 600px;
+  flex-shrink: 0;
+  flex-grow: 1;
 }
 #graph-popup.active{
     visibility: visible;
@@ -75,7 +102,12 @@ body.dark {
     #graph-popup{backdrop-filter: blur(3px)}
   }
 body{
+  box-sizing: border-box;
+  padding: 0;
+  min-height: 100vh;
   margin: 0;
+  display: flex;
+  flex-direction: column;
   font-family: sans-serif
 }
 header{
@@ -91,7 +123,8 @@ header{
   align-items: center;
 }
 main{
-  padding:12px;
+  padding:24px;
+  flex: auto;
   background-color: var(--default-bg);
 }
 .check-switch{
@@ -120,4 +153,46 @@ main{
   transition: transform ease-in-out 300ms ;
     transform:translateX(22.5px);
 
+  }
+  #dashboard {
+    display: flex;
+    flex-flow: row nowrap;
+  }
+  #dashboard div summary{
+
+    background-color: inherit;
+    margin-left: 12px;
+    padding: 12px;
+    box-sizing: border-box;
+    height: 100%;
+  }
+    #dashboard div summary #categories{
+    display: flex;
+    gap: 12px;
+    flex-flow: wrap row;
+  }
+
+  #dashboard div summary .category{
+    transition: all 500ms ease-in-out;
+    border: #a9a9a9 solid 1px;
+    background-color: #297d6924;
+    background: linear-gradient(45deg, #c8c8c8, transparent);
+    border-radius: 16px;
+    padding: 12px;
+    flex: 90px 1 1;
+    color: #585858;
+    cursor: pointer;
+  }
+  #dashboard div summary .category:hover {
+    background:#d5d0e6}
+  #dashboard div summary .category h1{
+    font-size: 36px;
+    margin: 0;
+  }
+  #dashboard div summary .category small{
+    color: #669b7c;
+  }
+  #dashboard div summary .category p{
+    font-size: 22px;
+    margin: 0 0 12px 0;
   }

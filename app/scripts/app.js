@@ -8,6 +8,8 @@ export const GsapModule = Gsap.gsap;
 import { D3Operations } from "/scripts/d3.operations.js";
 import { AppContext } from "/scripts/app.context.js";
 import { ProductManager } from "/scripts/product.manager.js";
+import { DashBoardSummary } from "/scripts/DOMscripts/dashboard/dashboard.summary.js";
+import { ProductListDomManagement } from "/scripts/DOMscripts/productlisting/product.list.state.management";
 
 // Initial process that occur when content loads
 document.addEventListener("DOMContentLoaded", async() => {

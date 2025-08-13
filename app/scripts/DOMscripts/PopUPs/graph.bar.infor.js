@@ -8,9 +8,11 @@ export const GraphInforController = (() => {
    })()
   return {
     // Infor as a product-item Obj
-    show: (infor, [xpos, ypos]) => {
+    show: (infor, [xpos, ypos],band_width) => {
       clearTimeout(timeout_id)
       const element = document.querySelector("#graph-popup")
+      const win_width = window.left;
+
 
       timeout_id = setTimeout(() => {
         //Setting the text content of current hovered product
@@ -18,13 +20,15 @@ export const GraphInforController = (() => {
         element.querySelector(".prod-des").textContent = infor.description
         element.querySelector(".prod-quantity").textContent = infor.quantity
         element.querySelector(".prod-price").textContent = infor.price
+
+        const calc_xpos = (win_width - xpos > element.clientWidth) ? xpos : xpos //- element.clientWidth - band_width
         //animating pop up
-        GsapModule.timeline().set("#graph-popup", { x: xpos - 30, y: ypos, scale: 1.3, opacity: 0 })
+        GsapModule.timeline().set("#graph-popup", { x: calc_xpos - 30, y: ypos, scale: 1.3, opacity: 0 })
           .call(() => {
             document.querySelector("#graph-popup")
             .classList.add("active")
           })
-          .to("#graph-popup", { x: xpos, y: ypos, scale: 1, opacity: 1 })
+          .to("#graph-popup", { x: calc_xpos, y: ypos, scale: 1, opacity: 1 })
           .from("#graph-popup .prod-name", { x: 10, opacity: 0 })
           .from("#graph-popup .prod-des", { x: 10, opacity: 0 })
           .from("#graph-popup .col", { y: 5, opacity: 0 })

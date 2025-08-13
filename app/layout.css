@@ -1,0 +1,36 @@
+@media (max-width: 600px) {
+ body > div {
+    flex-flow: column nowrap;
+    flex:auto;
+  }
+  #dashboard{
+    flex-flow: column nowrap;
+  }
+  #dashboard > div{
+    order: 0;
+  }
+  #dashboard #graph-container{
+    order: 1;
+  }
+
+  #dashboard div summary{
+    margin: 36px 0 ;
+    padding: 0;
+    background: none !important;
+  }
+}
+
+@media (min-width: 601px) {
+  body > div {
+    flex-flow: row nowrap;
+    flex-grow: 1;
+  }
+
+  #side-section-container {
+
+  }
+
+  main {
+
+  }
+}
